@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+@import "mysite.css";
+
+h1.pageTitle{
+	color: #8BB30B;
+	float: right;
+	margin-right: 30px;
+	padding: 10px;
+	font-size: 3em;
+	text-shadow: 2px 2px #3879D9;
+}
+
+#guestbook			{ margin:20px auto;	width:540px; margin-top: 80px;}
+#guestbook_msg { font-size: 1.5em;}
+#guestbook form, 
+#guestbook table	{ width:100%; border:0px}
+
+/* #guestbook table,	
+#guestbook table td { border:1px solid #333 } */
+#guestbook table td { padding:5px;   border: 0px; }
+
+#guestbook table td.label { background-color: #E0E0E0; border-bottom: 2px solid #8BB30B; border-top-left-radius: 5px; border-top-right-radius: 5px;}
+#guestbook table.form tr:first-child {  height: 35px; text-align: center; font-weight: bold; }
+#guestbook table.form tr:first-child input{ height: 25px;}
+#guestbook table.form input[type='submit']{ width: 200px; border: 3px solid #388BDE; height: 30px; background-color: #388BDE; border-radius: 5px; color: white; font-size: 1.5em; font-weight: bold;}
+
+#guestbook table input, textarea{  border: 2px solid #8BB30B; width: 100%; border-radius: 5px;}
+
+#guestbook ul		{ width:100%; margin-top:20px }
+#guestbook ul li	{ width:100%; margin-top:10px }
+
+
+#guestbook.delete-form form {
+	width: 300px;
+	padding: 30px;
+	border: 4px solid #388BDE;
+	border-radius: 10px;
+	margin: 50px auto;
+}
+
+#guestbook.delete-form a			{ display:block; margin:20px auto; width:110px; text-decoration: none;font-size: 2em;font-weight: bold;color: #79B30B; text-align:center}
+#guestbook.delete-form a:hover 	{ color: mediumblue;}
+
+#guestbook.delete-message p	{ padding:100px; height:50px; text-align:center }
+
+#guestbook textarea#content	{ width: 100%; border:none; height: 100px; resize: none; outline: none; }
+
+#guestbook table.list {  border: 2px solid #8BB30B; border-radius: 5px;}
+#guestbook table.list tr:first-child {text-align: center; font-weight: bold;}
+#guestbook table.list tr:first-child a{  text-decoration: none;}
+#list_count{width: 10%}
+#list_date, #list_name{  width: 35%;}
+#list_delete{width:20%}
+
+
+#guestbook .del_pass {text-align: center;}
+#guestbook .del_pass tr:first-child{ font-size: 1.3em; font-weight: bold; text-align: right;}
+#guestbook .del_pass input[type="submit"]{display: block; width: 150px; margin: 20px auto; border: 3px solid #388BDE; height: 30px; background-color: #388BDE; border-radius: 10px; color: white; font-size: 1.3em; font-weight: bold;}
+#guestbook .del_pass input[type="password"]{ width: 285px; height: 45px; border: 3px solid #79B30B; border-radius: 5px;}

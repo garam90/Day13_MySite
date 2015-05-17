@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+@import "mysite.css";
+
+#user		{ margin:20px auto;	width:540px;  margin-top: 80px;}
+#join-form	{
+	width:240px;
+	padding:10px;
+	border: 4px solid #388BDE;
+	border-radius: 10px;
+	margin: 50px auto;
+}
+h1.pageTitle{
+	color: #8BB30B;
+	float: right;
+	margin-right: 30px;
+	padding: 10px;
+	font-size: 3em;
+	text-shadow: 2px 2px #3879D9;
+}
+
+label.block-label					{ display:block; margin-bottom: 7px; font-size: 1.5em; font-weight: bold; float: right; width: 130px; text-align: right; }
+label.block-label, fieldset			{ margin:5px 0 3px 0 }
+label.block-label, fieldset legend	{ margin-bottom:3px }
+
+fieldset				{ border:none }
+input:not([type="submit"]){ width: 195px; height: 25px; border: 3px solid #79B30B; border-radius: 5px;}
+input[type="submit"]	{ display: block; width: 120px; margin: 20px auto; border: 3px solid #388BDE; height: 30px; background-color: #388BDE; border-radius: 10px; color: white; font-size: 1.5em; font-weight: bold;}
+
+#login-form	{
+	width: 200px;
+	padding: 30px;
+	border: 4px solid #388BDE;
+	border-radius: 10px;
+	margin: 50px auto;
+}
+
+#user p		{ text-align:center; padding:10px}
+
+#user p.jr-success	{ height:200px }
+
+.gender input	{ width: 100px; margin-top: 10px; }
+.agree input	{ width: 70px; margin-top: 10px;}
+.gender legend, .agree legend { font-size: 1.5em; font-weight: bold;}
+.gender label, .agree label { font-weight: bold;}

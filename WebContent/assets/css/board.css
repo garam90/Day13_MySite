@@ -1,0 +1,142 @@
+@CHARSET "UTF-8";
+
+h1.pageTitle{
+	color: #8BB30B;
+	float: right;
+	margin-right: 30px;
+	padding: 10px;
+	font-size: 3em;
+	text-shadow: 2px 2px #3879D9;
+}
+
+table.boardTable {
+	width: 90%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.tableHead {
+	font-weight: bold;
+	font-size: 1.5em;
+	background-color: #E0E0E0;
+	height: 2em;
+}
+
+.tableHead td {
+	border: 2px solid #8BB30B;
+	border-radius: 10px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+th {
+	font-weight: bold;
+	font-size: 1.4em;
+	background-color: #8BB30B;
+	border: 2px solid #8BB30B;
+	color: white;
+	text-shadow: 2px 2px #388BDE;
+	width: 80px;
+}
+
+.search {
+	height: 40px;
+}
+
+.search input[type="text"] {
+	width: 200px;
+	height: 25px;
+	border: 2px solid #8BB30B;
+	border-radius: 5px;
+}
+
+.search	input[type="submit"] {
+  width: 60px;
+  margin: 20px auto;
+  border: 3px solid #388BDE;
+  height: 30px;
+  background-color: #388BDE;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.list_title {
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+table tr:not(.search):not(.tableHead) td:not(.aTag ){
+	height: 20px;
+	border-bottom: 2px solid #8BB30B;
+}
+
+table tr:last-child {
+	
+}
+
+td.no {
+	width: 10%;
+}
+
+td.title {
+	width: 55%;
+}
+
+td.user {
+	width: 20%;
+}
+
+td.date {
+	width: 15%;
+}
+
+.btn input{
+	width: 150px; margin: 20px auto; border: 3px solid #388BDE; height: 30px; background-color: #388BDE; border-radius: 10px; color: white; font-size: 1.3em; font-weight: bold;
+}
+
+.aTag a,span {
+	text-decoration: none;
+	font-size: 2em;
+	font-weight: bold;
+	color: yellowgreen;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.aTag a:HOVER {
+	color: mediumblue;
+}
+
+.detail_content {
+	border: 2px solid #8BB30B;
+	border-radius: 10px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	padding: 2em;
+	text-align: left;
+	font-size: 1.5em;
+}
+
+.lastTd{
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.newBoard{
+	border:0px
+}
+.newBoard .btn input{ border-radius: 5px; text-decoration: none; font-size: 1.5em; color: white; background-color: #388BDE; font-weight: bold; width: 90px; height: 30px; border: 0px; margin: 5px; float: right;}
+#boardinput table tr td{ border: 0px;}
+#boardinput table th{ border-radius: 5px;}
+#boardinput table input{ height:35px}
+#boardinput table textarea{padding: 30px; width: 86%;border: 3px solid #8BB30B; border-radius: 5px; }
+#boardinput table input{border: 3px solid #8BB30B; width: 100%; border-radius: 5px;}
+#boardinput table .btn input{width: 150px; margin: 20px auto; border: 3px solid #388BDE; height: 30px; background-color: #388BDE; border-radius: 10px; color: white; font-size: 1.3em; font-weight: bold;}
