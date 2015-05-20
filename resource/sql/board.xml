@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="board">
+	<typeAlias alias="BoardVO" type="com.sds.icto.mysite.vo.BoardVO" />
+
+	<insert id="insert" parameterClass="BoardVO">
+		<![CDATA[
+		insert into board 
+		values (board_no_seq.nextval, #title#, #content#, #userId#, sysdate, 0 )
+		]]>  
+	</insert>
+	
+	<select id="getList" resultClass="BoardVO">
+		<![CDATA[
+		select * 
+		from board order by reg_date
+		]]>
+	</select>
+	
+	<update id="update" parameterClass="BoardVO">
+		update board
+		set title = #title#, 
+			content = #content# 
+		where no = #no#
+	</update>
+	
+	<update id="updateView" parameterClass="Map">
+		update board
+		set viewC = (select viewC
+					from board
+					where no = #no#)+1
+		where no = #no#
+	</update>
+	
+	<select id="boardDetail" parameterClass="Map" resultClass="BoardVO">
+		select * 
+		from board
+		where no = #no#
+	</select>
+	
+	<select id="search" parameterClass="Map" resultClass="BoardVO">
+		select *
+		from board
+		where title like '%' || #keyword# || '%' 
+	</select>
+	
+	<delete id="delete" parameterClass="map">
+		<![CDATA[
+		delete 
+		from board 
+		where no = #no# 
+		]]>
+	</delete>
+	
+</sqlMap> 

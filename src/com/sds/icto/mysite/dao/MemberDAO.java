@@ -1,111 +1,35 @@
 package com.sds.icto.mysite.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.ibatis.SqlMapClientTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.sds.icto.mysite.vo.MemberVO;
 
+@Repository
 public class MemberDAO {
 
-	private Connection getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		Connection conn = DriverManager.getConnection(url, "webdb", "webdb");
-		return conn;
-	}
+	@Autowired
+	SqlMapClientTemplate sqlMapClientTemplate;
 
-	public void insertMember(MemberVO vo) throws ClassNotFoundException, SQLException{
-		Connection conn = getConnection();
-		String sql = "insert into member values (member_no_seq.nextval, ?,?,?,?)";
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setString(1, vo.getName());
-		stmt.setString(2, vo.getEmail());
-		stmt.setString(3, vo.getPassword());
-		stmt.setString(4, vo.getGender());
-		stmt.executeUpdate();
+	public void insertMember(MemberVO vo){
 		
-		if (stmt != null) {
-			try {
-				stmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		sqlMapClientTemplate.insert("member.insert", vo);
+		
 	}
 	
-	public MemberVO login(MemberVO vo) throws SQLException, ClassNotFoundException{
-		MemberVO member = new MemberVO();
+	public MemberVO login(MemberVO vo){
+		MemberVO member = null;
 		
-		Connection conn = getConnection();
-		String sql = "select * from member where email = ? and password = ?";
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setString(1, vo.getEmail());
-		stmt.setString(2, vo.getPassword());
+		member = (MemberVO) sqlMapClientTemplate.queryForObject("member.login",vo);
 		
-		ResultSet rs = stmt.executeQuery();
-		while (rs.next()) {
-			member.setName(rs.getString(2));
-			member.setEmail(rs.getString(3));
-		}
-
-		if (rs != null) {
-			try {
-				rs.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		if (stmt != null) {
-			try {
-				stmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
 		return member;
 	}
 	
-	public void updateMember(MemberVO vo) throws ClassNotFoundException, SQLException{
+	public void updateMember(MemberVO vo){
 		
-		Connection conn = getConnection();
-		String sql = "update member set name = ? , password = ? where email = ?";
-		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setString(1, vo.getName());
-		stmt.setString(2, vo.getPassword());
-		stmt.setString(3, vo.getEmail());
-		stmt.executeUpdate();
-		
-		if (stmt != null) {
-			try {
-				stmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		sqlMapClientTemplate.update("member.update", vo);
 		
 	}
 	
